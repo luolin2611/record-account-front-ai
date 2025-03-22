@@ -39,6 +39,15 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/home/budget',
+    name: 'Budget',
+    component: () => import('../views/home/budget.vue'),
+    meta: {
+      title: '本月预算',
+      keepAlive: true
+    }
+  },
+  {
     path: '/bill',
     name: 'Bill',
     component: () => import('../views/bill/index.vue'),
@@ -66,6 +75,15 @@ const routes: RouteRecordRaw[] = [
       title: '我的',
       keepAlive: true,
       showTabBar: true
+    }
+  },
+  {
+    path: '/record',
+    name: 'Record',
+    component: () => import('../views/record/index.vue'),
+    meta: {
+      title: '记账',
+      keepAlive: true
     }
   }
 ]
