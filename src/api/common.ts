@@ -1,5 +1,6 @@
 import request from '@/utils/request'
 import type { ApiResponse } from '@/types'
+import type { GetClassifyListResponse } from './types'
 
 interface UploadResponse {
   url: string
@@ -18,5 +19,14 @@ export function uploadFile(file: File) {
     headers: {
       'Content-Type': 'multipart/form-data'
     }
+  })
+}
+
+// 获取分类列表
+export function getClassifyList(type?: string) {
+  return request<GetClassifyListResponse>({
+    url: '/classify/list',
+    method: 'get',
+    params: { type }
   })
 } 

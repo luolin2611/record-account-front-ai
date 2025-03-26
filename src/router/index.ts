@@ -80,7 +80,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/record',
     name: 'Record',
-    component: () => import('../views/record/index.vue'),
+    component: () => import('../views/home/record.vue'),
     meta: {
       title: '记账',
       keepAlive: true
@@ -114,4 +114,4 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-export default router 
+export default router

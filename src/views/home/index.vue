@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home-page">
     <!-- 顶部卡片 -->
     <div class="overview-card">
       <div class="expense">
@@ -21,13 +21,7 @@
 
     <!-- 记账和添加资产按钮 -->
     <div class="action-buttons">
-      <van-button 
-        block 
-        type="primary" 
-        icon="edit"
-        class="record-btn"
-        @click="goToRecord"
-      >
+      <van-button block type="primary" icon="edit" class="record-btn" @click="goToRecord">
         记一笔
       </van-button>
     </div>
@@ -45,22 +39,14 @@
       <!-- 账单列表 -->
       <div class="bill-list">
         <!-- 按日期分组 -->
-        <div 
-          class="date-group" 
-          v-for="(group, index) in statistics.recentRecords" 
-          :key="index"
-        >
+        <div class="date-group" v-for="(group, index) in statistics.recentRecords" :key="index">
           <div class="date-header">
             {{ group.date }}
             <span class="week-day">{{ getWeekDay(group.date) }}</span>
           </div>
-          
+
           <!-- 当日账单列表 -->
-          <div 
-            class="bill-item" 
-            v-for="record in group.records" 
-            :key="record.id"
-          >
+          <div class="bill-item" v-for="record in group.records" :key="record.id">
             <div class="category-icon">
               <i :class="['iconfont', 'icon-' + record.iconName]"></i>
             </div>
@@ -68,11 +54,8 @@
               <div class="category-name">{{ record.classifyName }}</div>
               <div class="bill-time">{{ record.remark }}</div>
             </div>
-            <div 
-              class="bill-amount" 
-              :class="{ 'expense': record.classifyType === '0' }"
-            >
-              {{ record.classifyType === '0' ? '-' : '+' }}¥{{ record.amount.toFixed(2) }}
+            <div class="bill-amount" :class="{ 'expense': record.classifyType === '0' }">
+              ¥{{ record.amount.toFixed(2) }}
             </div>
           </div>
         </div>
@@ -110,11 +93,11 @@ const totalRecords = computed(() => {
 const getWeekDay = (dateStr: string) => {
   const today = new Date()
   const date = new Date(dateStr)
-  
+
   if (date.toDateString() === today.toDateString()) {
     return '今天'
   }
-  
+
   const weekDays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
   return weekDays[date.getDay()]
 }
@@ -138,7 +121,7 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.home {
+.home-page {
   min-height: 100vh;
   background: #f7f8fa;
   padding-bottom: 50px;
@@ -205,8 +188,8 @@ onMounted(() => {
     .asset-btn {
       height: 44px;
       border-radius: 22px;
-      border-color: #ff9a9e;
-      color: #ff9a9e;
+      border-color: #ec6564;
+      color: #ec6564;
       padding: 0 20px;
     }
   }
@@ -269,7 +252,7 @@ onMounted(() => {
 
           .iconfont {
             font-size: 24px;
-            color: #ff9a9e;
+            color: #ec6564;
           }
         }
 
@@ -294,7 +277,7 @@ onMounted(() => {
           color: #07c160;
 
           &.expense {
-            color: #ff9a9e;
+            color: #ec6564;
           }
         }
       }

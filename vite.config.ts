@@ -5,7 +5,14 @@ import { resolve } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
-  plugins: [vue()],
+  plugins: [
+    vue({
+      script: {
+        defineModel: true,
+        propsDestructure: true
+      }
+    })
+  ],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),

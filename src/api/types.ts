@@ -36,4 +36,39 @@ export interface LoginParams {
 export interface LoginResponse {
   user: UserInfo
   token: string
+}
+
+export interface ClassifyItem {
+  id: number
+  classifyName: string
+  type: string
+  addType: string
+  iconName: string
+  createdTime: string
+  updatedTime: string
+}
+
+export interface GetClassifyListResponse {
+  code: string
+  message: string
+  timestamp: number
+  body: ClassifyItem[]
+}
+
+// 记账请求参数类型
+export interface RecordBillParams {
+  billMoney: number
+  classifyId: number
+  classifyName: string
+  classifyType: string
+  recordTime: string
+  remark: string
+}
+
+// 记账响应类型
+export interface RecordBillResponse {
+  code: string
+  message: string
+  timestamp: number
+  body: any
 } 

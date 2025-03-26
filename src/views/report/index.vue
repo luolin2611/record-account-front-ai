@@ -1,5 +1,5 @@
 <template>
-  <div class="report">
+  <div class="report-page">
     <div class="month-selector">
       <van-dropdown-menu>
         <van-dropdown-item v-model="currentYear" :options="yearOptions" />
@@ -104,7 +104,7 @@ const categories = ref([
 </script>
 
 <style scoped lang="less">
-.report {
+.report-page {
   background: #f7f8fa;
   min-height: 100vh;
 

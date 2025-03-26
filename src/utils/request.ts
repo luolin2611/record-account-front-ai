@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { showToast, showLoadingToast, closeToast } from 'vant'
 import { useUserStore } from '@/stores/user'
-
+import router from '@/router'
 // 创建 axios 实例
 const request = axios.create({
   baseURL: '/api', // 使用相对路径，会被代理到实际的服务器
@@ -44,6 +44,14 @@ request.interceptors.response.use(
     // 使用新的成功状态码
     if (code === 'SUC0000') {
       return body
+    } else if (code === 'ERM0008') {
+      showToast({
+        message: '登录失效，请重新登录',
+        type: 'fail'
+      })
+    const userStore = useUserStore()
+      userStore.logout()
+      router.replace('/login')
     } else {
       showToast({
         message: message || '请求失败',
