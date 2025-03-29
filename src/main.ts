@@ -27,7 +27,8 @@ import {
   Tab,
   Swipe,
   SwipeItem,
-  Popup
+  Popup,
+  Loading
 } from 'vant'
 
 // 引入全局样式
@@ -59,6 +60,7 @@ app.use(Tab)
 app.use(Swipe)
 app.use(SwipeItem)
 app.use(Popup)
+app.use(Loading)
 
 // 使用路由
 app.use(router)

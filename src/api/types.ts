@@ -71,4 +71,13 @@ export interface RecordBillResponse {
   message: string
   timestamp: number
   body: any
+}
+
+// AI 相关类型定义
+export interface AiChatRequest {
+  message: string
+}
+
+export interface AiChatResponse {
+  content: string
 } 
